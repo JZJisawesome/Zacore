@@ -22,7 +22,7 @@ end
 //Clock cycle counter to end simulation
 logic [63:0] counter = 0;
 
-always_ff @(posedge clk) begin
+always_ff @(posedge i_clk) begin
     counter <= counter + 1;
 
     if (counter == 1000000)

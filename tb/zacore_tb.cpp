@@ -32,30 +32,25 @@ int main(int argc, char** argv) {
     Verilated::traceEverOn(true);//Needed to support dumping
 
     //Simulation
-    testbench->eval();//Update simulation
-    ++simulation_time;//Increment time counter
-
     //Reset all registers
     testbench->i_rst = 1;
     testbench->eval();//Update simulation
     ++simulation_time;//Increment time counter
+    testbench->eval();//Update simulation
+    ++simulation_time;//Increment time counter
+
     testbench->i_clk = 1;//Set clock high
-    testbench->eval();//Update simulation
-    ++simulation_time;//Increment time counter
-    testbench->i_clk = 0;//Set clock low
-    testbench->eval();//Update simulation
-    ++simulation_time;//Increment time counter
     testbench->i_rst = 0;
     testbench->eval();//Update simulation
     ++simulation_time;//Increment time counter
 
     //Toggle the clock repeadetly
     while (!Verilated::gotFinish()) {//Run simulation until $finish() is called in SystemVerilog
-        testbench->i_clk = 1;//Set clock high
+        testbench->i_clk = 0;//Set clock low
         testbench->eval();//Update simulation
         ++simulation_time;//Increment time counter
 
-        testbench->i_clk = 0;//Set clock low
+        testbench->i_clk = 1;//Set clock high
         testbench->eval();//Update simulation
         ++simulation_time;//Increment time counter
     }

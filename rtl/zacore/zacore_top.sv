@@ -14,7 +14,7 @@ module zacore_top #(
     output logic [31:0] o_data_write,
     output logic [3:0] o_data_write_mask,//Only write a byte if the corresponding bit is set (bit 0 is the LSB, bit 1 is byte 1, and so on)
     input logic [31:0] i_data_read
-)
+);
 
 
 
