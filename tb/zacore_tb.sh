@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FILES_TO_INCLUDE="-I ../rtl/zacore/zacore_top.sv ../rtl/zacore/zacore_common.sv ../rtl/zacore/zacore_fetch.sv ../rtl/zacore/zacore_decode.sv ../rtl/zacore/zacore_execute.sv"
+FILES_TO_INCLUDE="-I ../rtl/zacore/zacore_common.sv ../rtl/zacore/zacore_top.sv ../rtl/zacore/zacore_fetch.sv ../rtl/zacore/zacore_decode.sv ../rtl/zacore/zacore_execute.sv ../rtl/zacore/zacore_memory.sv ../rtl/zacore/zacore_writeback.sv"
 
 #Verilate the testbench and vgacpu SystemVerilog files//todo split into multiple commands
 verilator $FILES_TO_INCLUDE --timescale 10ns/10ns -Wall -Wno-fatal -sv -cc zacore_tb.sv --exe --trace-fst -O3 --top-module zacore_tb +1800-2017ext+sv --build zacore_tb.cpp

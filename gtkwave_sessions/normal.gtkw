@@ -1,10 +1,10 @@
 [*]
 [*] GTKWave Analyzer v3.3.111 (w)1999-2020 BSI
-[*] Fri Nov 18 13:26:51 2022
+[*] Fri Nov 18 19:12:25 2022
 [*]
 [dumpfile] "/tmp/zacore_tb.vcd"
-[dumpfile_mtime] "Fri Nov 18 13:26:10 2022"
-[dumpfile_size] 4019222
+[dumpfile_mtime] "Fri Nov 18 19:11:48 2022"
+[dumpfile_size] 4019448
 [savefile] "/home/jzj/wd/tech/ece/2022/Zacore/gtkwave_sessions/normal.gtkw"
 [timestart] 0
 [size] 1680 969
@@ -12,8 +12,9 @@
 *-5.700000 5800 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] TOP.
 [treeopen] TOP.zacore_tb.
-[sst_width] 209
-[signals_width] 206
+[treeopen] TOP.zacore_tb.top.
+[sst_width] 291
+[signals_width] 214
 [sst_expanded] 1
 [sst_vpaned_height] 285
 @200
@@ -25,16 +26,26 @@ TOP.i_rst
 -Top Level I/O
 @28
 TOP.zacore_tb.top.o_fetch_req
+TOP.zacore_tb.i_fetch_ack
 @22
 TOP.zacore_tb.top.o_fetch_addr[31:0]
 TOP.zacore_tb.top.i_inst_read[31:0]
 @28
 TOP.zacore_tb.top.o_read_req
+TOP.zacore_tb.i_read_ack
 TOP.zacore_tb.top.o_write_req
+TOP.zacore_tb.i_write_ack
 @22
 TOP.zacore_tb.top.o_data_addr[31:0]
 TOP.zacore_tb.top.i_data_read[31:0]
 TOP.zacore_tb.top.o_data_write[31:0]
 TOP.zacore_tb.top.o_data_write_mask[3:0]
+@200
+-Fetch
+@28
+TOP.zacore_tb.top.fetch.i_invalidate
+TOP.zacore_tb.top.fetch.i_stall
+@22
+TOP.zacore_tb.top.fetch.o_fetch_decode_if[63:0]
 [pattern_trace] 1
 [pattern_trace] 0

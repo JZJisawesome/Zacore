@@ -1,3 +1,5 @@
+import zacore_common::*;
+
 module zacore_decode #(
 
 ) (
@@ -13,7 +15,8 @@ module zacore_decode #(
     //From writeback
     input writeback_decode_if_t i_writeback_decode_if,
 
-    //From execute
+    //Stall signals
+    output logic o_stall,//To fetch
     input logic i_stall,//Stalls output flop stage
 
     //Invalidate/flush control
