@@ -52,6 +52,4 @@ typedef struct packed {
     //TODO other fields
 } writeback_execute_if_t;
 
-//TODO add execute_fetch_if_t struct for branches
-
 endpackage

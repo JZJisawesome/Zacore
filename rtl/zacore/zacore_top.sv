@@ -33,8 +33,13 @@ fetch_decode_if_t fetch_decode_if;
 decode_execute_if_t decode_execute_if;
 execute_memory_if_t execute_memory_if;
 memory_writeback_if_t memory_writeback_if;
+
+//Backwards interfaces
+execute_fetch_if_t execute_fetch_if;
 writeback_decode_if_t writeback_decode_if;
 writeback_execute_if_t writeback_execute_if;
+
+/* Module instanciations */
 
 zacore_fetch #(
 
@@ -49,6 +54,8 @@ zacore_fetch #(
     .i_inst_read(i_inst_read),
 
     .o_fetch_decode_if(fetch_decode_if),
+
+    .i_execute_fetch_if(execute_fetch_if),
 
     .i_stall(stall[0]),
 
