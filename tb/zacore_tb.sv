@@ -7,6 +7,7 @@ logic o_fetch_req;
 logic o_read_req;
 logic o_write_req;
 logic [31:0] o_fetch_addr;
+logic [31:0] i_inst_read;
 logic [31:0] o_data_addr;
 logic [31:0] o_data_write;
 logic [3:0] o_data_write_mask;
