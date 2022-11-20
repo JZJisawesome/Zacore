@@ -19,7 +19,7 @@ logic [31:0] i_data_read;
 zacore_top top (.*);
 
 initial begin
-    $dumpfile("/tmp/zacore_tb.vcd");
+    $dumpfile("/tmp/zacore_tb.fst");
     $dumpvars(0, zacore_tb);
 end
 

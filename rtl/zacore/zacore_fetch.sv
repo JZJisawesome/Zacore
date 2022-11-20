@@ -33,22 +33,42 @@ assign o_fetch_req = ~i_stall;
 logic stall;
 assign stall = i_stall | ~i_fetch_ack;
 
-/* PC Logic */
+/* PC and Address Logic */
 
 pc_t pc;
 pc_t next_pc;
 
+//Get next PC
 always_comb begin
 //TODO if we have a branch taken from execute, change the pc to that
     next_pc = pc + 4;
 end
 
+//Sequential PC logic
 always_ff @(posedge i_clk) begin
     if (i_rst)
         pc <= '0;
     else begin
         if (~stall)
             pc <= next_pc;
+    end
+end
+
+assign o_fetch_addr = {pc, 1'b0};
+
+/* Fetching And Decode Output Logic */
+
+always_ff @(posedge i_clk) begin
+    if (i_rst)
+        o_fetch_decode_if.datapath_info.valid <= 0;
+    else begin
+        if (i_invalidate)
+            o_fetch_decode_if.datapath_info.valid <= 0;
+        else if (~stall)
+            o_fetch_decode_if.datapath_info.valid <= 1;
+
+        o_fetch_decode_if.datapath_info.pc <= pc;
+        o_fetch_decode_if.inst <= i_inst_read;
     end
 end
 
