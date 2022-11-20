@@ -23,4 +23,38 @@ module zacore_decode #(
     input logic i_invalidate
 );
 
+/* Logic to determine instruction type */
+
+inst_type_t inst_type;
+
+always_comb begin
+    case (i_fetch_decode_if.inst.field.opcode)
+        7'b0110111: inst_type = INST_TYPE_U;//LUI
+        7'b0010111: inst_type = INST_TYPE_U;//AUIPC
+        7'b1100111: inst_type = INST_TYPE_J;//JALR
+        7'b1100011: inst_type = INST_TYPE_B;//Branch
+        7'b0000011: inst_type = INST_TYPE_I;//Load
+        7'b0100011: inst_type = INST_TYPE_S;//Store
+        7'b0010011: inst_type = INST_TYPE_I;//Immediate computation
+        7'b0110011: inst_type = INST_TYPE_R;//Register computation
+        7'b0001111: inst_type = INST_TYPE_I;//FENCE
+        7'b1110011: inst_type = INST_TYPE_I;//ECALL/EBREAK
+        //TODO others
+        default: inst_type = inst_type_t'('x);
+    endcase
+end
+
+/* Instruction decoding */
+
+/* Immediate formation */
+
+w_t imm;
+
+zacore_decode_immediate decode_immediate (.inst(i_fetch_decode_if.inst), .imm(imm));
+
+/* Register file access */
+
+
+/* Output logic */
+
 endmodule

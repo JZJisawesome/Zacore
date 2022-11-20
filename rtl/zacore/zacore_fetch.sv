@@ -1,7 +1,7 @@
 import zacore_common::*;
 
 module zacore_fetch #(
-
+    parameter addr_t RESET_ADDR = 32'h00000000
 ) (
     input logic i_clk,
     input logic i_rst,
@@ -47,14 +47,14 @@ end
 //Sequential PC logic
 always_ff @(posedge i_clk) begin
     if (i_rst)
-        pc <= '0;
+        pc <= RESET_ADDR;
     else begin
         if (~stall)
             pc <= next_pc;
     end
 end
 
-assign o_fetch_addr = {pc, 1'b0};
+assign o_fetch_addr = pc;
 
 /* Fetching And Decode Output Logic */
 

@@ -62,6 +62,25 @@ zacore_fetch #(
     .i_invalidate(invalidate[0])
 );
 
+zacore_decode #(
+
+
+) decode (
+    .i_clk(i_clk),
+    .i_rst(i_rst),
+
+    .i_fetch_decode_if(fetch_decode_if),
+
+    .o_decode_execute_if(decode_execute_if),
+
+    .i_writeback_decode_if(writeback_decode_if),
+
+    .o_stall(stall[0]),
+    .i_stall(stall[1]),
+
+    .i_invalidate(invalidate[1])
+);
+
 /*zacore_memory #() memory
 
 ( .i_clk(i_clk) );

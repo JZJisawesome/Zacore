@@ -35,15 +35,16 @@ end
 
 //Simple memory for testing
 
+//TODO fix the endianness of this
 assign i_fetch_ack = o_fetch_req;
 assign i_read_ack = o_read_req;
 assign i_write_ack = o_write_req;
 
 logic [31:0] memory [16384];
-initial $readmemh("/tmp/test.hex", memory);
+initial $readmemh("/tmp/test.hex", memory);//File is big endian
 
-assign i_inst_read = memory[o_fetch_addr];
-assign i_data_read = memory[o_data_addr];
+assign i_inst_read = {memory[o_fetch_addr][7:0], memory[o_fetch_addr][15:8], memory[o_fetch_addr][23:16], memory[o_fetch_addr][31:24]};
+assign i_data_read = {memory[o_data_addr][7:0], memory[o_data_addr][15:8], memory[o_data_addr][23:16], memory[o_data_addr][31:24]};
 
 always_ff @(posedge i_clk) begin
     if (o_write_req) begin

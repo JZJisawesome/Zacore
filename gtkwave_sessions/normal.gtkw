@@ -1,24 +1,31 @@
 [*]
 [*] GTKWave Analyzer v3.3.111 (w)1999-2020 BSI
-[*] Sun Nov 20 14:41:11 2022
+[*] Sun Nov 20 15:52:44 2022
 [*]
 [dumpfile] "/tmp/zacore_tb.fst"
-[dumpfile_mtime] "Sun Nov 20 14:38:09 2022"
-[dumpfile_size] 19020012
+[dumpfile_mtime] "Sun Nov 20 15:51:24 2022"
+[dumpfile_size] 19020892
 [savefile] "/home/jzj/wd/tech/ece/2022/Zacore/gtkwave_sessions/normal.gtkw"
 [timestart] 0
 [size] 1680 969
 [pos] -1 -1
-*-5.100000 1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-5.700000 41 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] TOP.
 [treeopen] TOP.zacore_tb.
 [treeopen] TOP.zacore_tb.top.
+[treeopen] TOP.zacore_tb.top.decode.
+[treeopen] TOP.zacore_tb.top.decode.decode_immediate.inst.
+[treeopen] TOP.zacore_tb.top.decode.decode_immediate.inst.field.
+[treeopen] TOP.zacore_tb.top.decode.i_fetch_decode_if.
+[treeopen] TOP.zacore_tb.top.decode.i_fetch_decode_if.inst.
+[treeopen] TOP.zacore_tb.top.decode_execute_if.
 [treeopen] TOP.zacore_tb.top.fetch.i_execute_fetch_if.
 [treeopen] TOP.zacore_tb.top.fetch_decode_if.
+[treeopen] TOP.zacore_tb.top.fetch_decode_if.inst.
 [sst_width] 291
 [signals_width] 230
 [sst_expanded] 1
-[sst_vpaned_height] 284
+[sst_vpaned_height] 480
 @200
 -Clock and Reset
 @28
@@ -48,13 +55,25 @@ TOP.zacore_tb.top.o_data_write_mask[3:0]
 TOP.zacore_tb.top.fetch.i_invalidate
 TOP.zacore_tb.top.fetch.i_stall
 @22
-TOP.zacore_tb.top.fetch.next_pc[31:1]
-TOP.zacore_tb.top.fetch.pc[31:1]
+TOP.zacore_tb.top.fetch.next_pc[31:0]
+TOP.zacore_tb.top.fetch.pc[31:0]
 @200
 -Fetch-Decode
-@29
+@28
 TOP.zacore_tb.top.fetch_decode_if.datapath_info.valid
 @22
-TOP.zacore_tb.top.fetch_decode_if.datapath_info.pc[31:1]
+TOP.zacore_tb.top.fetch_decode_if.datapath_info.pc[31:0]
+@200
+-Decode
+@23
+TOP.zacore_tb.top.decode.i_fetch_decode_if.inst.field.opcode[6:0]
+@100000028
+TOP.zacore_tb.top.decode.inst_type[31:0]
+@200
+-Decode-Execute
+@28
+TOP.zacore_tb.top.decode_execute_if.datapath_info.valid
+@22
+TOP.zacore_tb.top.decode_execute_if.datapath_info.pc[31:0]
 [pattern_trace] 1
 [pattern_trace] 0
