@@ -11,9 +11,11 @@ module zacore_rf #(
     output w_t rs2,
     input w_t rd,
 
-    input logic rd_write_enable,
+    input logic rd_write_enable
 );
 
 /* TODO */
+
+//Make this implicitly "bypass", so if a read and write occur on the same cycle to the same address, give the NEW DATA
 
 endmodule

@@ -44,13 +44,24 @@ always_comb begin
     endcase
 end
 
-/* Instruction decoding */
+/* Instruction decoding/control logic for future stages */
 
 /* Immediate formation */
 
-w_t imm;
+w_t imm_i;
+w_t imm_s;
+w_t imm_b;
+w_t imm_u;
+w_t imm_j;
 
-zacore_decode_immediate decode_immediate (.inst(i_fetch_decode_if.inst), .imm(imm));
+zacore_decode_immediate decode_immediate (
+    .inst(i_fetch_decode_if.inst),
+    .imm_i(imm_i),
+    .imm_s(imm_s),
+    .imm_b(imm_b),
+    .imm_u(imm_u),
+    .imm_j(imm_j)
+);
 
 /* Register file access */
 

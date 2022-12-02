@@ -14,9 +14,9 @@ module zacore_top #(
     input logic i_fetch_ack,
     input logic i_read_ack,
     input logic i_write_ack,
-    output logic [31:0] o_fetch_addr,
+    output logic [29:0] o_fetch_addr,//Word address//TODO reduce size by 2 bits to match
     input logic [31:0] i_inst_read,
-    output logic [31:0] o_data_addr,
+    output logic [29:0] o_data_addr,//Word address//TODO reduce size by 2 bits to match
     output logic [31:0] o_data_write,
     output logic [3:0] o_data_write_mask,//Only write a byte if the corresponding bit is set (bit 0 is the LSB, bit 1 is byte 1, and so on)
     input logic [31:0] i_data_read

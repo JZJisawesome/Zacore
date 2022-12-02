@@ -1,20 +1,19 @@
 [*]
 [*] GTKWave Analyzer v3.3.111 (w)1999-2020 BSI
-[*] Sun Nov 20 15:52:44 2022
+[*] Fri Dec  2 12:37:03 2022
 [*]
 [dumpfile] "/tmp/zacore_tb.fst"
-[dumpfile_mtime] "Sun Nov 20 15:51:24 2022"
-[dumpfile_size] 19020892
+[dumpfile_mtime] "Fri Dec  2 12:36:33 2022"
+[dumpfile_size] 24031966
 [savefile] "/home/jzj/wd/tech/ece/2022/Zacore/gtkwave_sessions/normal.gtkw"
 [timestart] 0
 [size] 1680 969
 [pos] -1 -1
-*-5.700000 41 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-5.100000 27 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] TOP.
 [treeopen] TOP.zacore_tb.
 [treeopen] TOP.zacore_tb.top.
 [treeopen] TOP.zacore_tb.top.decode.
-[treeopen] TOP.zacore_tb.top.decode.decode_immediate.inst.
 [treeopen] TOP.zacore_tb.top.decode.decode_immediate.inst.field.
 [treeopen] TOP.zacore_tb.top.decode.i_fetch_decode_if.
 [treeopen] TOP.zacore_tb.top.decode.i_fetch_decode_if.inst.
@@ -35,9 +34,11 @@ TOP.i_rst
 -Top Level I/O
 @28
 TOP.zacore_tb.top.o_fetch_req
+@22
+TOP.zacore_tb.top.o_fetch_addr[29:0]
+@28
 TOP.zacore_tb.i_fetch_ack
 @22
-TOP.zacore_tb.top.o_fetch_addr[31:0]
 TOP.zacore_tb.top.i_inst_read[31:0]
 @28
 TOP.zacore_tb.top.o_read_req
@@ -45,7 +46,7 @@ TOP.zacore_tb.i_read_ack
 TOP.zacore_tb.top.o_write_req
 TOP.zacore_tb.i_write_ack
 @22
-TOP.zacore_tb.top.o_data_addr[31:0]
+TOP.zacore_tb.top.o_data_addr[29:0]
 TOP.zacore_tb.top.i_data_read[31:0]
 TOP.zacore_tb.top.o_data_write[31:0]
 TOP.zacore_tb.top.o_data_write_mask[3:0]
@@ -63,12 +64,20 @@ TOP.zacore_tb.top.fetch.pc[31:0]
 TOP.zacore_tb.top.fetch_decode_if.datapath_info.valid
 @22
 TOP.zacore_tb.top.fetch_decode_if.datapath_info.pc[31:0]
+TOP.zacore_tb.top.fetch_decode_if.inst.raw[31:0]
 @200
 -Decode
-@23
+@22
 TOP.zacore_tb.top.decode.i_fetch_decode_if.inst.field.opcode[6:0]
 @100000028
 TOP.zacore_tb.top.decode.inst_type[31:0]
+@22
+TOP.zacore_tb.top.decode.imm_i[31:0]
+TOP.zacore_tb.top.decode.imm_s[31:0]
+TOP.zacore_tb.top.decode.imm_b[31:0]
+TOP.zacore_tb.top.decode.imm_u[31:0]
+@23
+TOP.zacore_tb.top.decode.imm_j[31:0]
 @200
 -Decode-Execute
 @28
