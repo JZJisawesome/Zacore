@@ -9,7 +9,7 @@ module zacore_fetch #(
     //Memory Interface
     output logic o_fetch_req,
     input logic i_fetch_ack,
-    output logic [29:0] o_fetch_addr,
+    output w_addr_t o_fetch_addr,
     input logic [31:0] i_inst_read,
 
     //To decode
